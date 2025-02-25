@@ -5,6 +5,7 @@
     'summary': 'Estimate service costs',
     'description': 'Module to estimate the costs of providing services',
     'author': 'SIMI Technologies',
+    'website': 'https://simitechnologies.co.ke',
     'depends': ['base'],
     'data': [
         'security/service_estimate_security.xml',
