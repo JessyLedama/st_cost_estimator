@@ -1,0 +1,23 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Define a custom module category for Cost Estimator -->
+        <record id="module_category_cost_estimator" model="ir.module.category">
+            <field name="name">Cost Estimator</field>
+            <field name="description">Manage access rights for the Cost Estimator module</field>
+            <field name="sequence">20</field> <!-- Determines where the category appears in the list -->
+        </record>
+
+        <!-- Define groups using the custom category -->
+        <record id="group_service_estimate_user" model="res.groups">
+            <field name="name">Service Estimate User</field>
+            <field name="category_id" ref="module_category_cost_estimator"/> <!-- Reference custom category -->
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> <!-- Inherits basic internal user rights -->
+        </record>
+
+        <record id="group_service_estimate_admin" model="res.groups">
+            <field name="name">Service Estimate Administrator</field>
+            <field name="category_id" ref="module_category_cost_estimator"/> <!-- Reference custom category -->
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> <!-- Inherits basic internal user rights -->
+        </record>
+    </data>
+</odoo>

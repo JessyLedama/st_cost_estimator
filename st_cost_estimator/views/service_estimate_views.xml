@@ -1,0 +1,63 @@
+<odoo>
+    <record id="view_service_estimate_form" model="ir.ui.view">
+        <field name="name">service.estimate.form</field>
+        <field name="model">service.estimate</field>
+        <field name="arch" type="xml">
+            <form string="Service Estimate">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="copies"/>
+                        <field name="date"/>
+                        <field name="total_material_cost" readonly="1"/>
+                        <field name="markup_percentage"/>
+                        <field name="markup_value" readonly="1"/>
+
+                        <field name="wastage_percentage"/>
+                        <field name="wastage_value" readonly="1"/>
+                        <field name="total_cost" readonly="1"/>
+                        <field name="final_total_cost" readonly="1"/> 
+                    </group>
+                    <notebook>
+                        <page string="Estimate Lines">
+                            <field name="estimate_line_ids" context="{'default_service_estimate_id': active_id}">
+                                <tree editable="bottom">
+                                    <field name="material"/>
+                                    <field name="quantity"/>
+                                    <field name="currency_id"/>
+                                    <field name="unit_price"/>
+                                    <field name="subtotal" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_service_estimate_tree" model="ir.ui.view">
+        <field name="name">service.estimate.tree</field>
+        <field name="model">service.estimate</field>
+        <field name="arch" type="xml">
+            <tree string="Service Estimates">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="currency_id"/>
+                <field name="total_material_cost"/>
+                <field name="final_total_cost"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_service_estimate" model="ir.actions.act_window">
+        <field name="name">Service Estimates</field>
+        <field name="res_model">service.estimate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_service_estimate" name="Service Estimates" sequence="10"/>
+    <menuitem id="menu_service_estimate_root" name="Service Management" sequence="10" parent="menu_service_estimate"/>
+    <menuitem id="menu_service_estimate_list" name="Service Estimates" parent="menu_service_estimate_root" action="action_service_estimate"/>
+</odoo>
+
