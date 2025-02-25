@@ -4,7 +4,7 @@
     'category': 'Services',
     'summary': 'Estimate service costs',
     'description': 'Module to estimate the costs of providing services',
-    'author': 'Jessy Ledama',
+    'author': 'SIMI Technologies',
     'depends': ['base'],
     'data': [
         'security/service_estimate_security.xml',
