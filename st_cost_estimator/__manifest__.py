@@ -4,7 +4,7 @@
     'category': 'Services',
     'summary': 'Estimate service costs',
     'description': 'Module to estimate the costs of providing services',
-    'author': 'SIMI Technologies',
+    'author': 'Jessy Ledama',
     'website': 'https://simitechnologies.co.ke',
     'depends': ['base'],
     'data': [
